@@ -6,7 +6,7 @@
 		<script src="search.js"></script>
 		<script src="firebase.js"></script>
 		<script>
-		var db = new Firebase('https://shining-heat-1230.firebaseio.com/');
+		var db = new Firebase('https://treasuredict.firebaseio.com/');
 		db.on("value", function(snapshot) {
 		localStorage.setItem('terms', JSON.stringify(snapshot.val()));  
 		}, function (errorObject) {
