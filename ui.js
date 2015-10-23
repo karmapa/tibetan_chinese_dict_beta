@@ -42,7 +42,7 @@ var drawtable = function(obj){
     var tablehead = "<tr>" + thstart + "藏文解釋" + thend 
     					   + thstart + "中文解釋" + thend + thstart + "略語1" + thend + thstart + "略語2" + thend 
     					   + thstart + "略語3" + thend + thstart + "同義詞1" + thend + thstart + "同義詞2" + thend 
-    					   + thstart + "同義詞3" + thend + thstart + "註記" + thend + "</tr>";
+    					   + thstart + "同義詞3" + thend + thstart + "出處" + thend + "</tr>";
 
 	var tablecontent = tablestart + tablehead;
 
@@ -55,10 +55,11 @@ var drawtable = function(obj){
 		var syn1 = obj.tdefinitions[i].cdefinitions[0].synonyms[0];
 		var syn2 = obj.tdefinitions[i].cdefinitions[0].synonyms[1];
 		var syn3 = obj.tdefinitions[i].cdefinitions[0].synonyms[2];
+		var src = obj.tdefinitions[i].cdefinitions[0].note;
 		tablecontent += "<tr id='content'>" + tdstart + obj.tdefinitions[i].tdef + tdend 
 							   + tdstart + obj.tdefinitions[i].cdefinitions[0].cdef + tdend + tdstart + abb1 + tdend 
 							   + tdstart + abb2 + tdend + tdstart + abb3 + tdend + tdstart + syn1 + tdend 
-							   + tdstart + syn2 + tdend + tdstart + syn3 + tdend + tdstart + data + tdend + "</tr>";
+							   + tdstart + syn2 + tdend + tdstart + syn3 + tdend + tdstart + src + tdend + "</tr>";
 		for(var j = 1; j < obj.tdefinitions[i].cdefinitions.length; j++){
 			var abb1 = obj.tdefinitions[i].cdefinitions[j].abbreviations[0];
 			var abb2 = obj.tdefinitions[i].cdefinitions[j].abbreviations[1];
@@ -69,7 +70,7 @@ var drawtable = function(obj){
 			tablecontent += "<tr id='content'>" + tdstart + data + tdend 
 								   + tdstart + obj.tdefinitions[i].cdefinitions[j].cdef + tdend + tdstart + abb1 + tdend 
 								   + tdstart + abb2 + tdend + tdstart + abb3 + tdend + tdstart + syn1 + tdend 
-								   + tdstart + syn2 + tdend + tdstart + syn3 + tdend + tdstart + data + tdend + "</tr>";
+								   + tdstart + syn2 + tdend + tdstart + syn3 + tdend + tdstart + src + tdend + "</tr>";
 		}
     }
     localStorage.undo ="<span id='termtitle'><span style='font-size:50px' id='showentry'>"+obj.entry+

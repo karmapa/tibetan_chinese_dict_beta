@@ -25,7 +25,7 @@ var trans_obj = function(){
 		obj["同義詞1"] =tr[i].cells[5].innerHTML; 
 		obj["同義詞2"] =tr[i].cells[6].innerHTML;
 		obj["同義詞3"] =tr[i].cells[7].innerHTML; 
-		obj["注記"] =tr[i].cells[8].innerHTML;	
+		obj["出處"] =tr[i].cells[8].innerHTML;	
 		json.push(obj);
 	}
 	var out = kick_null_object(json);
@@ -61,7 +61,7 @@ var build_cdef_obj=function(json){
 		syn_arr.push(json[i].同義詞1); syn_arr.push(json[i].同義詞2); syn_arr.push(json[i].同義詞3);
 		cdef["abbreviations"] = abrr_arr;
 		cdef["synonyms"] = syn_arr;
-		cdef["note"] = json[i].注記;
+		cdef["note"] = json[i].出處;
 		cdef_obj["cdefinition"] = cdef; newjson.push(cdef_obj);
 	}
 	return newjson;
