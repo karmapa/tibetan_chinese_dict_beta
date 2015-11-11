@@ -55,7 +55,7 @@ ol, ul {
   color: #FFD700;
   margin: 0 0 0 15px;
   height: 35px;
-  width: 400px;
+  width: 580px;
   font-family: Fixed, monospace;
   font-size: 42px;
   font-weight: 100;
@@ -127,7 +127,7 @@ ol, ul {
 /* entry list */
 #entrylist {
   width: 250px;
-  height: 820px;
+  height: 90%;
   overflow-x: hidden;
   overflow-y: auto;
 }
