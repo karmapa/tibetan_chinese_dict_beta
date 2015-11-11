@@ -1,4 +1,10 @@
-var terms=JSON.parse(localStorage.getItem('terms'));
+var terms;
+var db = new Firebase('https://treasuredict.firebaseio.com/');
+db.on("value", function(snapshot) {
+	terms=snapshot.val();  
+}, function (errorObject) {
+	console.log("The read failed: " + errorObject.code);
+});
 
 var saveEdited=function(obj,p){
 	db.child(p).set(obj);

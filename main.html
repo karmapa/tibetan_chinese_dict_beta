@@ -5,15 +5,7 @@
 		<script src="ui.js"></script>
 		<script src="search.js"></script>
 		<script src="firebase.js"></script>
-		<script>
-		var db = new Firebase('https://treasuredict.firebaseio.com/');
-		db.on("value", function(snapshot) {
-		localStorage.setItem('terms', JSON.stringify(snapshot.val()));  
-		}, function (errorObject) {
-		  console.log("The read failed: " + errorObject.code);
-		});
-
-		</script>
+		<script src="connectdatabase.js"></script>
 		<script src="transtabletojson.js"></script>
 		<script src="connectdatabase.js"></script>
 		<link rel="stylesheet" href="css/style.css">

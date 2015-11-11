@@ -16,13 +16,18 @@ var showentry=function(term){
 }
 
 var doentrySearch=function(tofind){
+	if(tofind){
 	var arr=entrySearch(tofind);
 	document.getElementById("display1").innerHTML=arr.map(showentry).join("<br/>");
+	}
 }
 
+
 var doabbSearch=function(tofind){
-	var arr=abbSearch(tofind);
-	document.getElementById("display1").innerHTML=arr.map(showentry).join("<br/>");
+	if(tofind){
+		var arr=abbSearch(tofind);
+		document.getElementById("display1").innerHTML=arr.map(showentry).join("<br/>");
+	}	
 }
 
 var showdetails=function(tofind,i){
