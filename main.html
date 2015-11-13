@@ -7,15 +7,15 @@
 		<script src="firebase.js"></script>
 		<script src="connectdatabase.js"></script>
 		<script src="transtabletojson.js"></script>
-		<script src="connectdatabase.js"></script>
 		<link rel="stylesheet" href="css/style.css">
+		
 	</head>
 
 	<body>
 	<div id="wrapper">
 	
 		<div id='top' class="mainlogo">
-			<div>Dzogchen Dictionary</div>
+			<div>DharmaTreasure Dictionary</div>
 			<button onClick="newEntry()">New Entry</button>
 			<button onClick='edit()'>Edit</button>
 		</div>	
@@ -27,25 +27,35 @@
     <form class="searchbar">
       <input id="entryinput" onInput="doentrySearch(this.value)" type='search' name='q' placeholder="辭條..." autocomplete="off"/>
       <input id="abbinput" onInput="doabbSearch(this.value)" type='search' name='q' placeholder="略語..." autocomplete="off"/>
-    
-    <div id = 'entrylist'>  
+      
+    <div id = 'entrylist'> 
+
       <ul id="display1" class="search-ac">
       </ul>
-    </div>  
+     
+    </div> 
     
     </form>
 
  </section>
   		</div>
-		
-		<div class='right'>
-	 
+			 
 	 <div id="display2" class="entrydetails"></div>
 
-		</div>
-	
-
 	</div>
+	<script>
+	var checkterms=function(){
+		if(terms==undefined){
+			setTimeout(function(){
+				return checkterms();
+			},500);
+		}else{
+			document.getElementById("display1").innerHTML="<p class='loading'>Loading Complete!</p>";
+		}
+	}
+	document.getElementById("display1").innerHTML="<p class='loading'>Loading Database......</p>";
+	checkterms();
+	</script>
 
 	</body>
 
