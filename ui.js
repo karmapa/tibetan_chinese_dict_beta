@@ -2,8 +2,8 @@ var newEntry=function(){
 	var n=drawtable("new");
 	var newtable="<button onClick='addRow()'>Add Row</button>"+"<button onClick='delRow()'>Delete Row</button>"
 				+"<button onClick='save_edit()'>Save</button>"+"<button onClick='cancel()'>Cancel</button>"
-				+"<span style='font-size:20' id='termtitle'>Entry name:<span class='newentry' id='showentry' contenteditable='true'>New Entry</span> "
-				+"<br/><span style='font-size:20'>Page:</span><span class='newpage' id='showpage' contenteditable='true'>New Entry page</span>"+"</span>"+"<div>"
+				+"<span id='termtitle'>Entry name:<span style='font-size:large' id='showentry' contenteditable='true'>New Entry</span> "
+				+"Page:<span id='showpage' contenteditable='true'>New Entry page</span>"+"</span>"+"<div>"
 				+n.replace(/<td>/g,"<td contenteditable='true'>").replace(/details/,"edited_details")+"</div>";
 	document.getElementById("display2").innerHTML=newtable;
 	addRow();
@@ -16,7 +16,7 @@ var showentry=function(term){
 }
 
 var doentrySearch=function(tofind){
-	if(tofind){
+	if(tofind.length>1){
 	var arr=entrySearch(tofind);
 	document.getElementById("display1").innerHTML=arr.map(showentry).join("<br/>");
 	}
@@ -24,7 +24,7 @@ var doentrySearch=function(tofind){
 
 
 var doabbSearch=function(tofind){
-	if(tofind){
+	if(tofind.length>1){
 		var arr=abbSearch(tofind);
 		document.getElementById("display1").innerHTML=arr.map(showentry).join("<br/>");
 	}	
@@ -44,10 +44,10 @@ var drawtable = function(obj){
     var tdstart = "<td>";
     var tdend = "</td>";
     var data = "";//non-breaking-space (讓td tag有東西，但顯示出的是空格;td tag沒東西的話，格子會不存在，排版會亂掉)
-    var tablehead = "<tr>" + "<th id='tibdef'>" + "藏文解釋" + thend 
-    					   + "<th id='chidef'>" + "中文解釋" + thend + "<th id='abb'>" + "略語1" + thend + "<th id='abb'>" + "略語2" + thend 
-    					   + "<th id='abb'>" + "略語3" + thend + "<th id='syn'>" + "同義詞1" + thend + "<th id='syn'>" + "同義詞2" + thend 
-    					   + "<th id='syn'>" + "同義詞3" + thend + "<th id='source'>" + "出處" + thend + "</tr>";
+    var tablehead = "<tr>" + thstart + "藏文解釋" + thend 
+    					   + thstart + "中文解釋" + thend + thstart + "略語1" + thend + thstart + "略語2" + thend 
+    					   + thstart + "略語3" + thend + thstart + "同義詞1" + thend + thstart + "同義詞2" + thend 
+    					   + thstart + "同義詞3" + thend + thstart + "出處" + thend + "</tr>";
 
 	var tablecontent = tablestart + tablehead;
 
@@ -62,8 +62,8 @@ var drawtable = function(obj){
 		var syn3 = obj.tdefinitions[i].cdefinitions[0].synonyms[2];
 		var src = obj.tdefinitions[i].cdefinitions[0].note;
 		tablecontent += "<tr id='content'>" + tdstart + obj.tdefinitions[i].tdef + tdend 
-							   + "<td id='chi'>" + obj.tdefinitions[i].cdefinitions[0].cdef + tdend + "<td id='chi'>" + abb1 + tdend 
-							   + "<td id='chi'>" + abb2 + tdend + "<td id='chi'>" + abb3 + tdend + tdstart + syn1 + tdend 
+							   + tdstart + obj.tdefinitions[i].cdefinitions[0].cdef + tdend + tdstart + abb1 + tdend 
+							   + tdstart + abb2 + tdend + tdstart + abb3 + tdend + tdstart + syn1 + tdend 
 							   + tdstart + syn2 + tdend + tdstart + syn3 + tdend + tdstart + src + tdend + "</tr>";
 		for(var j = 1; j < obj.tdefinitions[i].cdefinitions.length; j++){
 			var abb1 = obj.tdefinitions[i].cdefinitions[j].abbreviations[0];
@@ -73,14 +73,14 @@ var drawtable = function(obj){
 			var syn2 = obj.tdefinitions[i].cdefinitions[j].synonyms[1];
 			var syn3 = obj.tdefinitions[i].cdefinitions[j].synonyms[2];
 			tablecontent += "<tr id='content'>" + tdstart + data + tdend 
-								   + "<td id='chi'>" + obj.tdefinitions[i].cdefinitions[j].cdef + tdend + tdstart + abb1 + tdend 
+								   + tdstart + obj.tdefinitions[i].cdefinitions[j].cdef + tdend + tdstart + abb1 + tdend 
 								   + tdstart + abb2 + tdend + tdstart + abb3 + tdend + tdstart + syn1 + tdend 
 								   + tdstart + syn2 + tdend + tdstart + syn3 + tdend + tdstart + src + tdend + "</tr>";
 		}
     }
-    localStorage.undo ="<span id='termtitle'><span class='entrytitle' id='showentry'>"+obj.entry+
-    					"</span>"+"<span class='entrypage' id='showpage'>"+obj.page+"</span>"+"</span>"+"<div>"+
-    					tablecontent + tableend + "</div>";
+    localStorage.undo ="<span id='termtitle'><span style='font-size:50px' id='showentry'>"+obj.entry+
+    					"</span>"+"<span id='showpage'>"+obj.page+"</span>"+"</span>"+"<div>"+
+    					"<button onClick='edit()'>Edit</button>"+ tablecontent + tableend + "</div>";
     return localStorage.undo;
 }
 
