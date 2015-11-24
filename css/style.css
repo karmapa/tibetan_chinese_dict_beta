@@ -38,33 +38,36 @@ ol, ul {
   float: right;
   margin-top: 16px;
   margin-right: 20px;
-  background: #db74c6;
-  background-image: -webkit-linear-gradient(top, #db74c6, #aa3db0);
-  background-image: -moz-linear-gradient(top, #db74c6, #aa3db0);
-  background-image: -ms-linear-gradient(top, #db74c6, #aa3db0);
-  background-image: -o-linear-gradient(top, #db74c6, #aa3db0);
-  background-image: linear-gradient(to bottom, #db74c6, #aa3db0);
-  -webkit-border-radius: 12;
-  -moz-border-radius: 12;
-  border-radius: 12px;
+  background: #e1e6e3;
+  background-image: -webkit-linear-gradient(top, #e1e6e3, #428082);
+  background-image: -moz-linear-gradient(top, #e1e6e3, #428082);
+  background-image: -ms-linear-gradient(top, #e1e6e3, #428082);
+  background-image: -o-linear-gradient(top, #e1e6e3, #428082);
+  background-image: linear-gradient(to bottom, #e1e6e3, #428082);
+  -webkit-border-radius: 8;
+  -moz-border-radius: 8;
+  border-radius: 8px;
   -webkit-box-shadow: 1px 3px 16px #666666;
   -moz-box-shadow: 1px 3px 16px #666666;
   box-shadow: 1px 3px 16px #666666;
   font-family: Courier New;
-  color: #ebd912;
-  font-size: 16px;
+  color: #6b2d6b;
+  font-size: 14px;
+  font-weight: 600;
   border: solid #8a4e20 1px;
   padding: 1px 6px 1px 6px;
   text-decoration: none;
 }
-.entrytitle {
-  font-size: 50px;
-  padding:2px;
-  margin-top: 50%;
-  margin-left: 3%;
+.showentry {
+  font-size: 20px;
+  border:2px #FFAC55 solid;
+  padding:5px;
+ 
 }
-.entrypage {
-  font-size: 15px;
+.showpage {
+  font-size: 20px;
+  border:2px #FFAC55 solid;
+  padding:5px;
 }
 
 
@@ -91,47 +94,33 @@ ol, ul {
 .mainlogo button {
   float: right;
   margin: 26px 25px 7px 5px;
-  background: #db74c6;
-  background-image: -webkit-linear-gradient(top, #db74c6, #aa3db0);
-  background-image: -moz-linear-gradient(top, #db74c6, #aa3db0);
-  background-image: -ms-linear-gradient(top, #db74c6, #aa3db0);
-  background-image: -o-linear-gradient(top, #db74c6, #aa3db0);
-  background-image: linear-gradient(to bottom, #db74c6, #aa3db0);
-  -webkit-border-radius: 12;
-  -moz-border-radius: 12;
-  border-radius: 12px;
+  background: #e1e6e3;
+  background-image: -webkit-linear-gradient(top, #e1e6e3, #428082);
+  background-image: -moz-linear-gradient(top, #e1e6e3, #428082);
+  background-image: -ms-linear-gradient(top, #e1e6e3, #428082);
+  background-image: -o-linear-gradient(top, #e1e6e3, #428082);
+  background-image: linear-gradient(to bottom, #e1e6e3, #428082);
+  -webkit-border-radius: 8;
+  -moz-border-radius: 8;
+  border-radius: 8px;
   -webkit-box-shadow: 1px 3px 16px #666666;
   -moz-box-shadow: 1px 3px 16px #666666;
   box-shadow: 1px 3px 16px #666666;
   font-family: Courier New;
-  color: #12ddeb;
-  font-size: 16px;
+  font-weight: 600;
+  color: #6b2d6b;
+  font-size: 14px;
   border: solid #8a4e20 1px;
   padding: 1px 6px 1px 6px;
   text-decoration: none;
 }
-.btn:hover {
-  background: #fc3cd6;
-  background-image: -webkit-linear-gradient(top, #fc3cd6, #d93476);
-  background-image: -moz-linear-gradient(top, #fc3cd6, #d93476);
-  background-image: -ms-linear-gradient(top, #fc3cd6, #d93476);
-  background-image: -o-linear-gradient(top, #fc3cd6, #d93476);
-  background-image: linear-gradient(to bottom, #fc3cd6, #d93476);
-  text-decoration: none;
-}
+
 .entrydetails span {
   line-height: 35px;
   margin-left: 40px;
   font-family: Courier;
 }
-.newentry {
-  font-size: 25px;
-  border:2px #FFAC55 solid;
-}
-.newpage {
-  font-size: 25px;
-  border:2px #FFAC55 solid;
-}
+
 
 /* end mainlogo */
 
@@ -238,7 +227,12 @@ table td {
   font-size: 25px;
   font-weight: 550;
 }
-
+.Entry {
+  font-size: 50px;
+}
+.Page {
+  font-size: 20px;
+}
 /* end details */
 
 body {
